@@ -152,10 +152,9 @@ module Gitjour
       def announce_repo(path, name, port)
         return unless File.exists?("#{path}/.git")
 
-        tr = DNSSD::TextRecord.new
-        tr['description'] = File.read("#{path}/.git/description") rescue "a git project"
+        description = File.read("#{path}/.git/description") rescue "a git project"
 
-        DNSSD.register(name, "_git._tcp", 'local', port, tr.encode) do |rr|
+        DNSSD.register(name, "_git._tcp", 'local', port, {"description"=>description}) do |rr|
           puts "Registered #{name} on port #{port}. Starting service."
         end
       end
