@@ -48,10 +48,7 @@ module Gitjour
 
         puts "Cloning '#{repository_name}' into directory '#{dir}'..."
 
-        unless service = locate_repo(repository_name)
-          exit_with! "ERROR: Unable to find project named '#{repository_name}'"
-        end
-
+        service = locate_repo repository_name
         puts "Connecting to #{service.host}:#{service.port}"
 
         system "git clone git://#{service.host}:#{service.port}/ #{dir}/"
@@ -67,16 +64,7 @@ module Gitjour
         path = File.expand_path(path)
         name = rest.shift || File.basename(path)
         port = rest.shift || 9418
-
-        # If the name starts with ^, then don't apply the prefix
-        if name[0] == ?^
-          name = name[1..-1]
-        else
-          prefix = `git config --get gitjour.prefix`.chomp
-          prefix = ENV["USER"] if prefix.empty?
-          name   = [prefix, name].compact.join("-")
-        end
-
+        
         if File.exists?("#{path}/.git")
           announce_repo(path, name, port.to_i)
         else
@@ -105,11 +93,6 @@ module Gitjour
         puts "  serve <path_to_project> [<name_of_project>] [<port>] or"
         puts "        <path_to_projects>"
         puts "      Serve up the current directory or projects via gitjour."
-        puts
-        puts "      The name of your project is automatically prefixed with"
-        puts "      `git config --get gitjour.prefix` or your username (preference"
-        puts "      in that order). If you don't want a prefix, put a ^ on the front"
-        puts "      of the name_of_project (the ^ is removed before announcing)."
         puts
         puts "  remote <project> [<name>]"
         puts "      Add a Bonjour remote into your current repository."
