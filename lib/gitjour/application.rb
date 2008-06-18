@@ -233,7 +233,7 @@ module Gitjour
 
         description = File.read("#{path}/.git/description") rescue "a git project"
 
-        DNSSD.register(name, type, 'local', port, tr.encode) do |rr|
+        DNSSD.register(name, type, 'local', port, {"description"=>description}) do |rr|
           puts "Registered #{name} on port #{port}. Starting service."
         end
       end
