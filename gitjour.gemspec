@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.specification_version = 2 if s.respond_to? :specification_version=
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Chad Fowler", "Rich Kilmer", "Evan Phoenix"]
+  s.authors = ["Chad Fowler", "Rich Kilmer", "Evan Phoenix", "Ben Livingood"]
   s.date = %q{2008-06-04}
   s.default_executable = %q{gitjour}
   s.description = %q{Automates DNSSD-powered serving and cloning of git repositories.}
