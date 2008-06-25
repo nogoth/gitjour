@@ -1,7 +1,6 @@
-(in /home/rails/lab/git/gitjour)
 Gem::Specification.new do |s|
   s.name = %q{gitjour}
-  s.version = "6.2.0a"
+  s.version = "6.2.1"
 
   s.specification_version = 2 if s.respond_to? :specification_version=
 

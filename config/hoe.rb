@@ -1,6 +1,6 @@
 require 'gitjour/version'
 
-AUTHOR = ['Chad Fowler', 'Rich Kilmer', 'Evan Phoenix']  # can also be an array of Authors
+AUTHOR = ['Chad Fowler', 'Rich Kilmer', 'Evan Phoenix','Ben Livingood']  # can also be an array of Authors
 EMAIL = "chad@chadfowler.com"
 DESCRIPTION = "Automates DNSSD-powered serving and cloning of git repositories."
 GEM_NAME = 'gitjour' # what ppl will type to install your gem
