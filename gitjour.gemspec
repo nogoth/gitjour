@@ -1,12 +1,10 @@
 Gem::Specification.new do |s|
   s.name = %q{gitjour}
-  s.version = "6.2.1"
-
-  s.specification_version = 2 if s.respond_to? :specification_version=
+  s.version = "6.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chad Fowler", "Rich Kilmer", "Evan Phoenix", "Ben Livingood"]
-  s.date = %q{2008-06-04}
+  s.date = %q{2008-06-26}
   s.default_executable = %q{gitjour}
   s.description = %q{Automates DNSSD-powered serving and cloning of git repositories.}
   s.email = %q{chad@chadfowler.com}
@@ -18,9 +16,20 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{gitjour}
-  s.rubygems_version = %q{1.1.0}
+  s.rubygems_version = %q{1.2.0}
   s.summary = %q{Automates DNSSD-powered serving and cloning of git repositories.}
   s.test_files = ["test/test_helper.rb", "test/test_gitjour.rb"]
 
-  s.add_dependency(%q<net-mdns>, [">= 0.4.0"])
+  if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
+    s.specification_version = 2
+
+    if current_version >= 3 then
+      s.add_runtime_dependency(%q<net-mdns>, [">= 0.4.0"])
+    else
+      s.add_dependency(%q<net-mdns>, [">= 0.4.0"])
+    end
+  else
+    s.add_dependency(%q<net-mdns>, [">= 0.4.0"])
+  end
 end

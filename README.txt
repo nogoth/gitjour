@@ -8,7 +8,7 @@ Many? One on linux right now is
 
 gem install nogoth-gitjour requires you to do a 
 
-sudo chmod go+r-w /usr/lib/ruby/gems/1.8/gems/nogoth-gitjour-6.2.1/bin/gitjour
+sudo chmod go+r-w /usr/lib/ruby/gems/1.8/gems/nogoth-gitjour-6.2.2/bin/gitjour
 
 if you get:
 	/usr/bin/gitjour:19:in `load': no such file to load -- gitjour (LoadError)
